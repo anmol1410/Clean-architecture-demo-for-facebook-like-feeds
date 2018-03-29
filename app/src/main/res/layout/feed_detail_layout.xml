@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <include layout="@layout/item_feed_header" />
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/rv_feed_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_feed_header"
+        android:background="@android:color/white"
+        android:padding="@dimen/spacing">
+
+        <include layout="@layout/common_feed_layout" />
+
+        <TextView
+            android:id="@+id/tv_feed_desc_title"
+            style="@style/headerTextviewStyle"
+            android:layout_below="@id/btn_like"
+            android:layout_marginTop="@dimen/spacing"
+            android:text="@string/description" />
+
+        <TextView
+            android:id="@+id/tv_feed_desc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tv_feed_desc_title"
+            android:layout_marginTop="@dimen/spacing"
+            android:fadeScrollbars="false"
+            android:longClickable="false"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size_medium"
+            tools:text="desc \n desc line 2" />
+
+    </RelativeLayout>
+</RelativeLayout>

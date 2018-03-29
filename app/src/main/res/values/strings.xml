@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">shuttl Assignment</string>
+
+    <string name="feeds_screen_name">Shuttl</string>
+
+    <string name="like">Like</string>
+    <string name="unlike">Unlike</string>
+    <string name="description">Description</string>
+    <string name="from_name">From %1$s</string>
+    <string name="feed_image">Feed image</string>
+
+    <!-- Errors -->
+    <string name="err_no_feeds">Unable to fetch feeds. Try again later</string>
+    <string name="err_load_image">Unable to Load Image</string>
+
+</resources>

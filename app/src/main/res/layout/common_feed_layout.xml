@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/item_feed">
+
+    <RelativeLayout
+        android:id="@+id/detail_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_feed_title">
+
+        <ImageView
+            android:id="@+id/iv_feed_image"
+            style="@style/feedImageStyle"
+            android:contentDescription="@string/feed_image"
+            android:transitionName="image"
+            tools:src="@drawable/ic_launcher_background"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tv_feed_text"
+            style="@style/textviewThreeLinedMedium"
+            android:layout_toEndOf="@id/iv_feed_image"
+            tools:text="tilee4 \n dd"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_image_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/spacing"
+            android:text="@string/err_load_image"
+            android:textColor="@color/colorPrimary"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar_loading"
+        style="@style/ProgressBarStyle"
+        android:layout_alignBottom="@id/detail_container"
+        android:layout_alignEnd="@id/detail_container"
+        android:layout_alignStart="@id/detail_container"
+        android:layout_alignTop="@id/detail_container"
+        android:background="@color/transparent_gray"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/btn_like"
+        style="@style/likeButtonStyle"
+        android:layout_below="@id/detail_container"
+        android:text="@string/like"
+        android:transitionName="buttonLike"
+        tools:background="@drawable/round_rect_blue"
+        tools:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/tv_from_person"
+        style="@style/TextviewSingleLineSmallStyle"
+        android:layout_alignBaseline="@id/btn_like"
+        android:layout_alignBottom="@id/btn_like"
+        android:layout_alignTop="@id/btn_like"
+        android:layout_toEndOf="@id/btn_like"
+        android:transitionName="feedFrom"
+        tools:text="tile \n line 2 \n line 3 \n line4" />
+</merge>

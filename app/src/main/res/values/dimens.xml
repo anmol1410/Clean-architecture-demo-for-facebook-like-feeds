@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="rv_divider">5dp</dimen>
+
+    <dimen name="header_height">35dp</dimen>
+
+    <!-- TextView sizes -->
+    <dimen name="text_size_very_small">10sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">15sp</dimen>
+    <dimen name="text_size_large">20sp</dimen>
+
+    <!-- common spacing used throughout the app -->
+    <dimen name="spacing">15dp</dimen>
+
+    <!-- Image height width for squaring. -->
+    <dimen name="image_dimen">80dp</dimen>
+</resources>
