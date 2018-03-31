@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">shuttl Assignment</string>
+    <string name="app_name">CleanArch</string>
 
-    <string name="feeds_screen_name">Shuttl</string>
+    <string name="feeds_screen_name">Feeds</string>
 
     <string name="like">Like</string>
     <string name="unlike">Unlike</string>

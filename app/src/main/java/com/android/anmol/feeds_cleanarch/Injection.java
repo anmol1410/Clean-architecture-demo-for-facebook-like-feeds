@@ -17,6 +17,11 @@
 package com.android.anmol.feeds_cleanarch;
 
 
+import android.content.Context;
+import android.support.annotation.NonNull;
+
+import com.android.anmol.feeds_cleanarch.feeds.GetFeeds;
+import com.android.anmol.feeds_cleanarch.feeds.UseCaseHandler;
 import com.android.anmol.feeds_cleanarch.source.FeedsRepository;
 import com.android.anmol.feeds_cleanarch.source.remote.FeedsRemoteDataSource;
 
@@ -35,4 +40,13 @@ public class Injection {
     public static FeedsRepository provideFeedsRepository() {
         return FeedsRepository.getInstance(FeedsRemoteDataSource.getInstance());
     }
+
+    public static GetFeeds provideGetFeeds(@NonNull Context context) {
+        return new GetFeeds(provideFeedsRepository());
+    }
+
+    public static UseCaseHandler provideUseCaseHandler() {
+        return UseCaseHandler.getInstance();
+    }
+
 }

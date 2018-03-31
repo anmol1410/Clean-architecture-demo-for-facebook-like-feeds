@@ -3,6 +3,7 @@ package com.android.anmol.feeds_cleanarch.feeds;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.android.anmol.feeds_cleanarch.base.UseCase;
 import com.android.anmol.feeds_cleanarch.feed_details.LikeButtonViewManager;
 import com.android.anmol.feeds_cleanarch.feeds.model.BaseFeedItemModel;
 import com.android.anmol.feeds_cleanarch.feeds.model.DateHeaderModel;
@@ -28,17 +29,21 @@ import java.util.List;
  */
 public class FeedPresenter implements FeedsContract.FeedsPresenter {
 
+    private UseCaseHandler mUseCaseHandler;
     private FeedsRepository mFeedsRepository;
 
+    private GetFeeds mGetFeeds;
     private FeedsContract.View mView;
 
     private final WeakReference<Context> mContext;
 
-    public FeedPresenter(@NonNull final Context context, FeedsRepository feedsRepository,
-                         FeedsContract.View view) {
-        mFeedsRepository =
-                Utils.checkNotNull(feedsRepository, "feedsRepository can not be null");
+    public FeedPresenter(@NonNull final Context context, UseCaseHandler useCaseHandler, FeedsRepository feedsRepository,
+                         GetFeeds getFeeds, FeedsContract.View view) {
+        mUseCaseHandler = useCaseHandler;
+        mFeedsRepository = Utils.checkNotNull(feedsRepository, "feedsRepository can not be null");
+        mGetFeeds = getFeeds;
         mView = Utils.checkNotNull(view, "view can not be null");
+
         mContext = new WeakReference<>(context);
         mView.setPresenter(this);
     }
@@ -54,32 +59,29 @@ public class FeedPresenter implements FeedsContract.FeedsPresenter {
         // Show loading dialog before the Network call is made.
         mView.setLoadingIndicator(true);
 
-        mFeedsRepository.getFeeds(new FeedsDataSource.FetchFeedsCallback() {
+        GetFeeds.RequestValues requestValue = new GetFeeds.RequestValues(forceUpdate);
 
-            @Override
-            public void onFeedsFetched(ResFeed[] feeds) {
-                if (!mView.isActive()) {
-                    return;
-                }
-                mView.setLoadingIndicator(false);
+        mUseCaseHandler.execute(mGetFeeds, requestValue,
+                new UseCase.UseCaseCallback<GetFeeds.ResponseValue>() {
+                    @Override
+                    public void onSuccess(GetFeeds.ResponseValue response) {
+                        ResFeed[] feeds = response.getFeeds();
+                        // The view may not be able to handle UI updates anymore
+                        if (!mView.isActive()) {
+                            return;
+                        }
+                        processFeeds(feeds);
+                    }
 
-                if (feeds.length == 0) {
-                    mView.showLoadingFeedsError(true);
-                }
-                processFeeds(feeds);
-            }
-
-            @Override
-            public void onDataNotAvailable() {
-                // The view may not be able to handle UI updates anymore
-                if (!mView.isActive()) {
-                    return;
-                }
-
-                // Show error.
-                mView.showLoadingFeedsError(true);
-            }
-        }, forceUpdate);
+                    @Override
+                    public void onError() {
+                        // The view may not be able to handle UI updates anymore
+                        if (!mView.isActive()) {
+                            return;
+                        }
+                        mView.showLoadingFeedsError(true);
+                    }
+                });
     }
 
     /**
@@ -125,6 +127,7 @@ public class FeedPresenter implements FeedsContract.FeedsPresenter {
             if (prevTime == -1 || prevTime != feed.getTime()) {
                 feedsWithHeaders.add(new DateHeaderModel(
                         (DateUtils.getHeaderDate(feed.getTime()))));
+                feedsWithHeaders.add(feed);
             } else {
                 feedsWithHeaders.add(feed);
             }

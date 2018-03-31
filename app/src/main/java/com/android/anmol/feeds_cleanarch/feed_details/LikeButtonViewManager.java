@@ -31,11 +31,11 @@ public class LikeButtonViewManager {
 
         switch (likeStatus) {
             case FeedStatusType.LIKE:
+                btnLikeBackgroundResId = R.drawable.unlike_btn_selector;
+                mBtnLikeTextColorResId = R.color.colorPrimary;
                 break;
 
             case FeedStatusType.UNLIKE:
-                btnLikeBackgroundResId = R.drawable.unlike_btn_selector;
-                mBtnLikeTextColorResId = R.color.colorPrimary;
                 break;
         }
 

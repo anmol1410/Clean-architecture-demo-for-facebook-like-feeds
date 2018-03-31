@@ -17,14 +17,15 @@
 package com.android.anmol.feeds_cleanarch.source.remote;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 
+import com.android.anmol.feeds_cleanarch.feeds.FeedStatusType;
 import com.android.anmol.feeds_cleanarch.source.FeedsDataSource;
 import com.android.anmol.feeds_cleanarch.source.ResFeed;
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
-import com.android.anmol.feeds_cleanarch.feeds.FeedStatusType;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -54,7 +55,7 @@ public class FeedsRemoteDataSource implements FeedsDataSource {
 
     @Override
     public void getFeeds(final @NonNull FetchFeedsCallback callback, boolean forceUpdate) {
-        new Handler().post(new Runnable() {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
 
