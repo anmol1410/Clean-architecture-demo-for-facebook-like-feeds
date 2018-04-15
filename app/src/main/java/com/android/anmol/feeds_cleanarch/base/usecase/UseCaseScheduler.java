@@ -1,6 +1,6 @@
-package com.android.anmol.feeds_cleanarch.feeds;
+package com.android.anmol.feeds_cleanarch.base.usecase;
 
-import com.android.anmol.feeds_cleanarch.base.UseCase;
+import com.android.anmol.feeds_cleanarch.base.usecase.UseCase;
 
 /**
  * Created by anmolsehgal on 29-03-2018.

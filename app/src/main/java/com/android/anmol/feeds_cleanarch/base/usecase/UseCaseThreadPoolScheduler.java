@@ -1,8 +1,6 @@
-package com.android.anmol.feeds_cleanarch.feeds;
+package com.android.anmol.feeds_cleanarch.base.usecase;
 
 import android.os.Handler;
-
-import com.android.anmol.feeds_cleanarch.base.UseCase;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;

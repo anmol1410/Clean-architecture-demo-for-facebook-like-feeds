@@ -1,8 +1,8 @@
-package com.android.anmol.feeds_cleanarch.feeds;
+package com.android.anmol.feeds_cleanarch.feeds.fetch_feeds;
 
 import android.support.annotation.NonNull;
 
-import com.android.anmol.feeds_cleanarch.base.UseCase;
+import com.android.anmol.feeds_cleanarch.base.usecase.UseCase;
 import com.android.anmol.feeds_cleanarch.source.FeedsDataSource;
 import com.android.anmol.feeds_cleanarch.source.ResFeed;
 import com.android.anmol.feeds_cleanarch.utility.Utils;
@@ -10,7 +10,6 @@ import com.android.anmol.feeds_cleanarch.utility.Utils;
 /**
  * Created by anmolsehgal on 29-03-2018.
  */
-
 public class GetFeeds extends UseCase<GetFeeds.RequestValues, GetFeeds.ResponseValue> {
 
     private FeedsDataSource mFeedsRemoteDataSource;
@@ -38,7 +37,7 @@ public class GetFeeds extends UseCase<GetFeeds.RequestValues, GetFeeds.ResponseV
             public void onDataNotAvailable() {
                 getUseCaseCallback().onError();
             }
-        }, true);
+        }, requestValues.isForceUpdate());
 
     }
 
@@ -54,7 +53,6 @@ public class GetFeeds extends UseCase<GetFeeds.RequestValues, GetFeeds.ResponseV
             return mForceUpdate;
         }
     }
-
 
     public static final class ResponseValue implements UseCase.ResponseValue {
 

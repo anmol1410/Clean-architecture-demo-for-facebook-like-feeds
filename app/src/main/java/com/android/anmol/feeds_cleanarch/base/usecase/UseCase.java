@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.anmol.feeds_cleanarch.base;
+package com.android.anmol.feeds_cleanarch.base.usecase;
 
 /**
  * Use cases are the entry points to the domain layer.

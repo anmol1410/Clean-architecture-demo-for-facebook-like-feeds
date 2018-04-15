@@ -75,7 +75,7 @@ public class FeedsRemoteDataSource implements FeedsDataSource {
 
     @Override
     public void configureLikeStatus(int feedId, @FeedStatusType final int oldLikeStatus, @NonNull final FeedLikeStatus callback) {
-        new Handler().post(new Runnable() {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
                 @FeedStatusType int newLikeStatus = FeedStatusType.LIKE;

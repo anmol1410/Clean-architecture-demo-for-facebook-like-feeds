@@ -3,8 +3,11 @@ package com.android.anmol.feeds_cleanarch.feeds;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.android.anmol.feeds_cleanarch.base.UseCase;
+import com.android.anmol.feeds_cleanarch.base.usecase.UseCase;
+import com.android.anmol.feeds_cleanarch.base.usecase.UseCaseHandler;
 import com.android.anmol.feeds_cleanarch.feed_details.LikeButtonViewManager;
+import com.android.anmol.feeds_cleanarch.feeds.fetch_feeds.GetFeeds;
+import com.android.anmol.feeds_cleanarch.feeds.like_feed.LikeFeed;
 import com.android.anmol.feeds_cleanarch.feeds.model.BaseFeedItemModel;
 import com.android.anmol.feeds_cleanarch.feeds.model.DateHeaderModel;
 import com.android.anmol.feeds_cleanarch.feeds.model.FeedModel;
@@ -33,15 +36,22 @@ public class FeedPresenter implements FeedsContract.FeedsPresenter {
     private FeedsRepository mFeedsRepository;
 
     private GetFeeds mGetFeeds;
+    private LikeFeed mLikeFeed;
     private FeedsContract.View mView;
 
     private final WeakReference<Context> mContext;
 
-    public FeedPresenter(@NonNull final Context context, UseCaseHandler useCaseHandler, FeedsRepository feedsRepository,
-                         GetFeeds getFeeds, FeedsContract.View view) {
+    public FeedPresenter(@NonNull final Context context,
+                         UseCaseHandler useCaseHandler,
+                         FeedsRepository feedsRepository,
+                         GetFeeds getFeeds,
+                         LikeFeed likeFeed,
+                         FeedsContract.View view) {
+
         mUseCaseHandler = useCaseHandler;
         mFeedsRepository = Utils.checkNotNull(feedsRepository, "feedsRepository can not be null");
         mGetFeeds = getFeeds;
+        mLikeFeed = likeFeed;
         mView = Utils.checkNotNull(view, "view can not be null");
 
         mContext = new WeakReference<>(context);
@@ -125,12 +135,9 @@ public class FeedPresenter implements FeedsContract.FeedsPresenter {
         long prevTime = -1;
         for (FeedModel feed : feedsForUi) {
             if (prevTime == -1 || prevTime != feed.getTime()) {
-                feedsWithHeaders.add(new DateHeaderModel(
-                        (DateUtils.getHeaderDate(feed.getTime()))));
-                feedsWithHeaders.add(feed);
-            } else {
-                feedsWithHeaders.add(feed);
+                feedsWithHeaders.add(new DateHeaderModel(DateUtils.getHeaderDate(feed.getTime())));
             }
+            feedsWithHeaders.add(feed);
             prevTime = feed.getTime();
         }
         return feedsWithHeaders;
@@ -171,6 +178,25 @@ public class FeedPresenter implements FeedsContract.FeedsPresenter {
             }
         });
 
+
+        LikeFeed.RequestValues requestValue = new LikeFeed.RequestValues(feedModel.getId(), feedModel.getFeedStatus());
+
+        mUseCaseHandler.execute(mLikeFeed, requestValue,
+                new UseCase.UseCaseCallback<LikeFeed.ResponseValue>() {
+
+                    @Override
+                    public void onSuccess(LikeFeed.ResponseValue response) {
+                        if (!mView.isActive()) {
+                            return;
+                        }
+                        mView.updateView(pos, LikeButtonViewManager.getUpdatedFeed(feedModel, response.getNewLikeStatus()));
+                    }
+
+                    @Override
+                    public void onError() {
+                        // Do nothing...
+                    }
+                });
     }
 
     @Override

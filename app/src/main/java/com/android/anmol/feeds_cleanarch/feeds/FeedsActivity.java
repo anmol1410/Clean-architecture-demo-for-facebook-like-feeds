@@ -54,7 +54,8 @@ public class FeedsActivity extends BaseActivity {
         new FeedPresenter(this,
                 Injection.provideUseCaseHandler(),
                 Injection.provideFeedsRepository(),
-                Injection.provideGetFeeds(getApplicationContext()),
+                Injection.provideGetFeeds(),
+                Injection.provideLikeFeed(),
                 new ViewCallbackListener());
 
         mPresenter.fetchFeeds(true);
