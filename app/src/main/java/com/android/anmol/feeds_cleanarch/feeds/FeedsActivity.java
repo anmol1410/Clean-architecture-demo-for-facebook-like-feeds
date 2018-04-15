@@ -17,6 +17,7 @@ import com.android.anmol.feeds_cleanarch.base.BaseActivity;
 import com.android.anmol.feeds_cleanarch.feed_details.FeedDetailsActivity;
 import com.android.anmol.feeds_cleanarch.feeds.model.BaseFeedItemModel;
 import com.android.anmol.feeds_cleanarch.feeds.model.FeedModel;
+import com.android.anmol.feeds_cleanarch.feeds.viewholders.FeedHolder;
 import com.android.anmol.feeds_cleanarch.utility.RecyclerViewSpaceItemDecorator;
 
 import java.util.List;

@@ -4,7 +4,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 
 import com.android.anmol.feeds_cleanarch.R;
-import com.android.anmol.feeds_cleanarch.feeds.FeedStatusType;
+import com.android.anmol.feeds_cleanarch.feeds.viewholders.FeedStatusType;
 import com.android.anmol.feeds_cleanarch.feeds.model.FeedModel;
 
 /**

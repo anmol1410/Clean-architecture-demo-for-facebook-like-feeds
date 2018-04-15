@@ -1,4 +1,4 @@
-package com.android.anmol.feeds_cleanarch.feeds;
+package com.android.anmol.feeds_cleanarch.feeds.viewholders;
 
 import android.support.annotation.IntDef;
 import android.support.annotation.StringRes;

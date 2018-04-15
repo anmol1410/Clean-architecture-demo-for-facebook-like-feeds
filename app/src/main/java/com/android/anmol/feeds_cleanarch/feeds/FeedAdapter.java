@@ -10,6 +10,8 @@ import com.android.anmol.feeds_cleanarch.base.BaseRecyclerViewAdapter;
 import com.android.anmol.feeds_cleanarch.feeds.model.BaseFeedItemModel;
 import com.android.anmol.feeds_cleanarch.feeds.model.DateHeaderModel;
 import com.android.anmol.feeds_cleanarch.feeds.model.FeedModel;
+import com.android.anmol.feeds_cleanarch.feeds.viewholders.FeedHolder;
+import com.android.anmol.feeds_cleanarch.feeds.viewholders.HeaderFeedHolder;
 
 import java.util.List;
 

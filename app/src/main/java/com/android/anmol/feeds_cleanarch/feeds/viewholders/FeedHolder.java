@@ -1,4 +1,4 @@
-package com.android.anmol.feeds_cleanarch.feeds;
+package com.android.anmol.feeds_cleanarch.feeds.viewholders;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -9,6 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.anmol.feeds_cleanarch.R;
+import com.android.anmol.feeds_cleanarch.feeds.FeedClickCallbackListener;
+import com.android.anmol.feeds_cleanarch.feeds.FeedClickListener;
 import com.android.anmol.feeds_cleanarch.feeds.model.FeedModel;
 import com.android.anmol.feeds_cleanarch.utility.ImageLoadUtils;
 import com.android.anmol.feeds_cleanarch.utility.ResUtils;
@@ -21,7 +23,7 @@ import butterknife.ButterKnife;
  * <p>
  * View Manager to render the Feed UI.
  */
-class FeedHolder extends RecyclerView.ViewHolder {
+public class FeedHolder extends RecyclerView.ViewHolder {
 
     private final View mView;
 
@@ -46,7 +48,7 @@ class FeedHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.progress_bar_loading)
     ProgressBar mProgressBar;
 
-    FeedHolder(View itemView) {
+    public FeedHolder(View itemView) {
         super(itemView);
         mView = itemView;
         ButterKnife.bind(this, itemView);
@@ -58,7 +60,7 @@ class FeedHolder extends RecyclerView.ViewHolder {
      * @param feed              Feed to render on the UI.
      * @param feedClickCallback Callback to listen to the view clicks.
      */
-    void bind(FeedModel feed, FeedClickListener feedClickCallback) {
+    public void bind(FeedModel feed, FeedClickListener feedClickCallback) {
         // Get data from Feed and update the view.
 
         mTvFeedText.setText(feed.getText());
@@ -93,4 +95,3 @@ class FeedHolder extends RecyclerView.ViewHolder {
         mBtnLike.setOnClickListener(onClickListener);
     }
 }
-

@@ -40,12 +40,12 @@ public class FeedPresenter implements FeedsContract.FeedsPresenter {
 
     private final WeakReference<Context> mContext;
 
-    public FeedPresenter(@NonNull final Context context,
-                         UseCaseHandler useCaseHandler,
-                         FeedsRepository feedsRepository,
-                         GetFeeds getFeeds,
-                         LikeFeed likeFeed,
-                         FeedsContract.View view) {
+    FeedPresenter(@NonNull final Context context,
+                  UseCaseHandler useCaseHandler,
+                  FeedsRepository feedsRepository,
+                  GetFeeds getFeeds,
+                  LikeFeed likeFeed,
+                  FeedsContract.View view) {
 
         mUseCaseHandler = useCaseHandler;
         mFeedsRepository = Utils.checkNotNull(feedsRepository, "feedsRepository can not be null");

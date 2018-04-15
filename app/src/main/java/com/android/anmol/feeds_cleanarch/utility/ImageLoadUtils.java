@@ -10,11 +10,11 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.anmol.feeds_cleanarch.R;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.bumptech.glide.request.target.Target;
-import com.android.anmol.feeds_cleanarch.R;
 
 /**
  * Created by anmolsehgal on 28-03-2018.

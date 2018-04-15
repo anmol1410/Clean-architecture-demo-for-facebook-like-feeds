@@ -3,7 +3,6 @@ package com.android.anmol.feeds_cleanarch.utility;
 import android.content.Context;
 import android.support.annotation.Nullable;
 
-
 import com.android.anmol.feeds_cleanarch.feeds.model.FeedModel;
 import com.android.anmol.feeds_cleanarch.source.ResFeed;
 

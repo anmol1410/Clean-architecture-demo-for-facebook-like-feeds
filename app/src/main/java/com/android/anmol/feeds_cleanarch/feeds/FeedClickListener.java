@@ -5,7 +5,7 @@ package com.android.anmol.feeds_cleanarch.feeds;
  * <p>
  * Triggered when te Feed is clicked or the like button is clicked.
  */
-interface FeedClickListener {
+public interface FeedClickListener {
 
     /**
      * To listen to the Feed click, so that details page can be launched.

@@ -18,7 +18,7 @@ package com.android.anmol.feeds_cleanarch.source;
 
 import android.support.annotation.NonNull;
 
-import com.android.anmol.feeds_cleanarch.feeds.FeedStatusType;
+import com.android.anmol.feeds_cleanarch.feeds.viewholders.FeedStatusType;
 
 /**
  * Created by anmolsehgal on 27-03-2018.
@@ -40,7 +40,6 @@ public interface FeedsDataSource {
     interface FeedLikeStatus {
 
         void configureLikeStatus(@FeedStatusType int likeStatus);
-
     }
 
     void getFeeds(@NonNull FetchFeedsCallback callback, boolean forceUpdate);

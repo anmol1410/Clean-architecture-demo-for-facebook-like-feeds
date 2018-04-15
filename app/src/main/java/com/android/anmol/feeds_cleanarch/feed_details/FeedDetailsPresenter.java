@@ -2,7 +2,7 @@ package com.android.anmol.feeds_cleanarch.feed_details;
 
 import android.support.annotation.NonNull;
 
-import com.android.anmol.feeds_cleanarch.feeds.FeedStatusType;
+import com.android.anmol.feeds_cleanarch.feeds.viewholders.FeedStatusType;
 import com.android.anmol.feeds_cleanarch.feeds.model.FeedModel;
 import com.android.anmol.feeds_cleanarch.source.FeedsDataSource;
 import com.android.anmol.feeds_cleanarch.source.FeedsRepository;

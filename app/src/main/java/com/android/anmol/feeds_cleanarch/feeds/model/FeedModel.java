@@ -6,7 +6,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 
-import com.android.anmol.feeds_cleanarch.feeds.FeedStatusType;
+import com.android.anmol.feeds_cleanarch.feeds.viewholders.FeedStatusType;
 
 /**
  * Created by anmolsehgal on 27-03-2018.

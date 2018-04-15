@@ -1,7 +1,7 @@
 package com.android.anmol.feeds_cleanarch.source;
 
+import com.android.anmol.feeds_cleanarch.feeds.viewholders.FeedStatusType;
 import com.google.gson.annotations.SerializedName;
-import com.android.anmol.feeds_cleanarch.feeds.FeedStatusType;
 
 /**
  * Created by anmolsehgal on 27-03-2018.

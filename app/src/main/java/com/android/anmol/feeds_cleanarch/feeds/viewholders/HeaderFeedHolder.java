@@ -1,4 +1,4 @@
-package com.android.anmol.feeds_cleanarch.feeds;
+package com.android.anmol.feeds_cleanarch.feeds.viewholders;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -15,17 +15,17 @@ import butterknife.ButterKnife;
  * <p>
  * To render the Date header for the feeds.
  */
-class HeaderFeedHolder extends RecyclerView.ViewHolder {
+public class HeaderFeedHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.tv_feed_header)
     TextView mTvFeedDate;
 
-    HeaderFeedHolder(View itemView) {
+    public HeaderFeedHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
     }
 
-    void bind(DateHeaderModel feed) {
+    public void bind(DateHeaderModel feed) {
         mTvFeedDate.setText(feed.getDate());
     }
 }

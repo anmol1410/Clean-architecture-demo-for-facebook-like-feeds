@@ -1,7 +1,7 @@
 package com.android.anmol.feeds_cleanarch.feeds.like_feed;
 
 import com.android.anmol.feeds_cleanarch.base.usecase.UseCase;
-import com.android.anmol.feeds_cleanarch.feeds.FeedStatusType;
+import com.android.anmol.feeds_cleanarch.feeds.viewholders.FeedStatusType;
 import com.android.anmol.feeds_cleanarch.source.FeedsDataSource;
 
 /**
@@ -44,12 +44,12 @@ public class LikeFeed extends UseCase<LikeFeed.RequestValues, LikeFeed.ResponseV
             mOldFeedStatus = oldFeedStatus;
         }
 
-        public int getFeedId() {
+        int getFeedId() {
             return mFeedId;
         }
 
         @FeedStatusType
-        public int getOldFeedStatus() {
+        int getOldFeedStatus() {
             return mOldFeedStatus;
         }
     }
@@ -58,7 +58,7 @@ public class LikeFeed extends UseCase<LikeFeed.RequestValues, LikeFeed.ResponseV
 
         private int mNewLikeStatus;
 
-        public ResponseValue(@FeedStatusType final int newLikeStatus) {
+        ResponseValue(@FeedStatusType final int newLikeStatus) {
             mNewLikeStatus = newLikeStatus;
         }
 

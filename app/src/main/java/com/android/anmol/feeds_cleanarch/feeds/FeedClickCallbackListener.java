@@ -10,7 +10,7 @@ import com.android.anmol.feeds_cleanarch.R;
  * <p>
  * Handles the clicks on the feed view.
  */
-class FeedClickCallbackListener implements View.OnClickListener {
+public class FeedClickCallbackListener implements View.OnClickListener {
 
     /**
      * View holder hosting the views.
@@ -22,7 +22,7 @@ class FeedClickCallbackListener implements View.OnClickListener {
      */
     private FeedClickListener mFeedClickCallback;
 
-    FeedClickCallbackListener(RecyclerView.ViewHolder viewHolder, FeedClickListener feedClickCallback) {
+    public FeedClickCallbackListener(RecyclerView.ViewHolder viewHolder, FeedClickListener feedClickCallback) {
         mViewHolder = viewHolder;
         mFeedClickCallback = feedClickCallback;
     }

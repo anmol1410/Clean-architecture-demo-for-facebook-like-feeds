@@ -49,7 +49,7 @@ public class GetFeeds extends UseCase<GetFeeds.RequestValues, GetFeeds.ResponseV
             mForceUpdate = forceUpdate;
         }
 
-        public boolean isForceUpdate() {
+        boolean isForceUpdate() {
             return mForceUpdate;
         }
     }
@@ -58,7 +58,7 @@ public class GetFeeds extends UseCase<GetFeeds.RequestValues, GetFeeds.ResponseV
 
         private final ResFeed[] mFeeds;
 
-        public ResponseValue(@NonNull ResFeed[] tasks) {
+        ResponseValue(@NonNull ResFeed[] tasks) {
             mFeeds = Utils.checkNotNull(tasks, "Feeds cannot be null!");
         }
 

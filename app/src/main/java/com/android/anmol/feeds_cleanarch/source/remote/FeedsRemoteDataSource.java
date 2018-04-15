@@ -20,7 +20,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 
-import com.android.anmol.feeds_cleanarch.feeds.FeedStatusType;
+import com.android.anmol.feeds_cleanarch.feeds.viewholders.FeedStatusType;
 import com.android.anmol.feeds_cleanarch.source.FeedsDataSource;
 import com.android.anmol.feeds_cleanarch.source.ResFeed;
 import com.google.gson.Gson;
