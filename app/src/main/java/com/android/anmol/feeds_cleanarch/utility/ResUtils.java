@@ -14,7 +14,7 @@ import android.support.annotation.StringRes;
  */
 public class ResUtils {
 
-    static int getDimen(Context context, @DimenRes int dimenRes) {
+    public static int getDimen(Context context, @DimenRes int dimenRes) {
         return context.getResources().getDimensionPixelOffset(dimenRes);
     }
 
@@ -30,7 +30,7 @@ public class ResUtils {
         return context.getResources().getDrawable(drawableRes);
     }
 
-    static String getString(Context context
+    public static String getString(Context context
             , @StringRes int stringRes, final Object... formatArgs) {
         return context.getResources().getString(stringRes, formatArgs);
     }

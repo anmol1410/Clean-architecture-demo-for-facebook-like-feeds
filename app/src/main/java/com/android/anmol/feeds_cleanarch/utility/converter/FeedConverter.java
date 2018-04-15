@@ -1,4 +1,4 @@
-package com.android.anmol.feeds_cleanarch.utility;
+package com.android.anmol.feeds_cleanarch.utility.converter;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

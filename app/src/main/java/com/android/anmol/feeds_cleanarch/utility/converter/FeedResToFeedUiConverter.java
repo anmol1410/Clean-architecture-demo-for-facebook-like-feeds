@@ -1,4 +1,4 @@
-package com.android.anmol.feeds_cleanarch.utility;
+package com.android.anmol.feeds_cleanarch.utility.converter;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -8,6 +8,7 @@ import com.android.anmol.feeds_cleanarch.R;
 import com.android.anmol.feeds_cleanarch.feed_details.LikeButtonViewManager;
 import com.android.anmol.feeds_cleanarch.feeds.model.FeedModel;
 import com.android.anmol.feeds_cleanarch.source.ResFeed;
+import com.android.anmol.feeds_cleanarch.utility.ResUtils;
 
 /**
  * Created by anmolsehgal on 27-03-2018.

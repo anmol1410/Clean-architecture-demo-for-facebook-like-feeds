@@ -14,7 +14,7 @@ import com.android.anmol.feeds_cleanarch.feeds.model.FeedModel;
 import com.android.anmol.feeds_cleanarch.source.FeedsRepository;
 import com.android.anmol.feeds_cleanarch.source.ResFeed;
 import com.android.anmol.feeds_cleanarch.utility.DateUtils;
-import com.android.anmol.feeds_cleanarch.utility.FeedConverter;
+import com.android.anmol.feeds_cleanarch.utility.converter.FeedConverter;
 import com.android.anmol.feeds_cleanarch.utility.Utils;
 
 import java.lang.ref.WeakReference;
