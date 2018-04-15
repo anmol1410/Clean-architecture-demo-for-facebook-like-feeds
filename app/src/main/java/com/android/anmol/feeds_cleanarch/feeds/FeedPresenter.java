@@ -11,7 +11,6 @@ import com.android.anmol.feeds_cleanarch.feeds.like_feed.LikeFeed;
 import com.android.anmol.feeds_cleanarch.feeds.model.BaseFeedItemModel;
 import com.android.anmol.feeds_cleanarch.feeds.model.DateHeaderModel;
 import com.android.anmol.feeds_cleanarch.feeds.model.FeedModel;
-import com.android.anmol.feeds_cleanarch.source.FeedsDataSource;
 import com.android.anmol.feeds_cleanarch.source.FeedsRepository;
 import com.android.anmol.feeds_cleanarch.source.ResFeed;
 import com.android.anmol.feeds_cleanarch.utility.DateUtils;
@@ -167,17 +166,6 @@ public class FeedPresenter implements FeedsContract.FeedsPresenter {
 
     @Override
     public void configureLikeStatus(@NonNull final FeedModel feedModel, final int pos) {
-
-        Utils.checkNotNull(feedModel, "Feed position clicked can not be null");
-
-        // Update the view.
-        mFeedsRepository.configureLikeStatus(feedModel.getId(), feedModel.getFeedStatus(), new FeedsDataSource.FeedLikeStatus() {
-            @Override
-            public void configureLikeStatus(@FeedStatusType final int likeStatus) {
-                mView.updateView(pos, LikeButtonViewManager.getUpdatedFeed(feedModel, likeStatus));
-            }
-        });
-
 
         LikeFeed.RequestValues requestValue = new LikeFeed.RequestValues(feedModel.getId(), feedModel.getFeedStatus());
 
