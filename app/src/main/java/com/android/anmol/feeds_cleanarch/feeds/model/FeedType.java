@@ -18,4 +18,3 @@ public @interface FeedType {
 
     int FEED = 2;
 }
-

@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by anmolsehgal on 29-03-2018.
  */
-
 class UseCaseThreadPoolScheduler implements UseCaseScheduler {
 
     private final Handler mHandler = new Handler();
