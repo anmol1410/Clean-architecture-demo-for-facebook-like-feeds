@@ -24,14 +24,17 @@ Contains Presenters
 Presenters can be any of the MVC/MVP/MVVM patterns. MVP is used most favorably for presentation purposes though.
 Here based on the Data changes, the View is updated.
 
+
 So the presentation layer only focuses on how the data is presented on the UI.
 Domain Layer:
 Focuses on the business logic.
 Contains the Data Models
 Contains the screen/view interfaces
 Use cases (different functionalities which exist in our application).
-
 This layer is pure Java/Kotlin based and is Android free.
+
+
+
 Data layer:
 Focuses on data(external/internal).
 Contains any external API's access.
